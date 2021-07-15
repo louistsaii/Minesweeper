@@ -18,7 +18,7 @@ public class Block {
 
     public void draw(Minesweeper ms) {
         if (mine == true) {
-            ms.fill(235, 52, 52);
+            ms.fill(29, 212, 222);
             ms.rect(blockX, blockY, size, size);
         } else {
             ms.fill(29, 212, 222);

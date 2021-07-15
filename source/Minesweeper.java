@@ -11,14 +11,16 @@ import java.io.PrintWriter;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.IOException;
+
 public class Minesweeper extends PApplet {
     //window size --> 500 by 500
     // block size -->  50 by 50
     final int windowWidth = 500;
-    final int windowHeight = 500;
+    final int windowHeight = 600;
     final int blockSize = 50;
     Block[][] b = new Block[10][10];
     Player player = new Player(4, 4);
+    int safezone = 0;
 
     public void setup() {
         for (int i = 0; i < b.length; i++) {
@@ -46,6 +48,11 @@ public class Minesweeper extends PApplet {
             block.drawPlayer(this);
         }
         player.showMines(this);
+
+
+        fill(255, 255, 255);
+        textSize(50);
+        text("Safe-Zone: " + safezone, 120, 560);
     }
 
     public void settings() {
