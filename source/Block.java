@@ -4,6 +4,7 @@ public class Block {
     boolean mine;
     int blockX;
     int blockY;
+    boolean safe = false;
 
     public Block(int size, boolean mine, int row, int col) {
         this.size = size;
