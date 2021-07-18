@@ -17,6 +17,16 @@ public class Block {
     }
 
     public void draw(Minesweeper ms) {
+
+        // if safe
+        //    set safe color
+        //    return
+        if (safe == true) {
+            ms.fill(252, 207, 3);
+            return;
+        }
+
+
         if (mine == true) {
             ms.fill(29, 212, 222);
             ms.rect(blockX, blockY, size, size);

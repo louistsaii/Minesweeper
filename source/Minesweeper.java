@@ -75,24 +75,45 @@ public class Minesweeper extends PApplet {
                 player.row = player.row - 1;
             }
         }
-
         if (player.row < 8) {
             if (keyCode == 40) { // DOWN
                 player.row = player.row + 1;
             }
         }
-
-
         if (keyCode == 37 && player.col > 1) { // LEFT
             player.col = player.col - 1;
         }
-
         if (keyCode == 39 && player.col < 8) { // Right
             player.col = player.col + 1;
         }
 
+        // press 'S' ==> safe zone confirm
+        if (keyCode == 83) {
+            ArrayList<Block> x = player.getSurroundBlocks(b);
+            boolean isSafe = true;
+            for (int i = 0; i < x.size(); i++) {
+                if (x.get(i).mine == true) {
+                    isSafe = false;
+                }
+            }
+            // isSafe == true
+            // all blocks --> set safe
+            if (isSafe == true) {
+                for (int i = 0; i < x.size(); i++) {
+                    // if safe ==> do nothing
+                    // else
+                    //   add safezone
+                    //   set safe
 
-        // check out bound ??
+                    if (x.get(i).safe == true) {
+                        continue;
+                    } else {
+                        x.get(i).safe = true;
+                        safezone = safezone + 1;
+                    }
+                }
+            }
+        }
     }
 }
 
